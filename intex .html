@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Slides 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      background: linear-gradient(135deg, #ffd6e0, #ffeaf1);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container{
+      width: 92%;
+      max-width: 420px;
+      background: #ffffff;
+      border-radius: 25px;
+      padding: 25px 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .slide{ display: none; }
+
+    .slide.active{ display: block; }
+
+    h1, h2, p{
+      color: #333;
+    }
+
+    input{
+      width: 90%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      outline: none;
+      text-align: center;
+    }
+
+    button{
+      padding: 10px 22px;
+      font-size: 17px;
+      border-radius: 22px;
+      background: #ff4d6d;
+      color: #fff;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    button:hover{
+      background: #ff2f55;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SLIDE 1 -->
+  <div class="slide active">
+    <h1>🩵 Welcome My Love 🖤</h1>
+    <p>Your Name</p>
+    <input id="n1" placeholder="Enter your name">
+    <p>Partner Name</p>
+    <input id="n2" placeholder="Enter partner name">
+    <button onclick="checkName()">Enter 💕</button>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide">
+    <h2>When did you first feel I was special to you?</h2>
+    <input placeholder="Type your answer">
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide">
+    <h2>What is your favourite memory with me?</h2>
+    <input placeholder="Type your answer">
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide">
+    <h2>How do you feel when I am with you?</h2>
+    <input placeholder="Type your answer">
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide">
+    <h2>What do you love the most about me?</h2>
+    <input placeholder="Type your answer">
+    <button onclick="next()">Next</button>
+  </div>
+
+  <!-- SLIDE 6 -->
+  <div class="slide">
+    <h2>One word to describe our love?</h2>
+    <input placeholder="Your word">
+    <button onclick="next()">Submit 💞</button>
+  </div>
+
+  <!-- SLIDE 7 -->
+  <div class="slide">
+    <h1>❣️ You are my today, my tomorrow & my forever ❣️</h1>
+    <button onclick="next()">Next 💖</button>
+  </div>
+
+  <!-- SLIDE 8 -->
+  <div class="slide">
+    <h1>💞 Happy Anniversary 💞</h1>
+    <p>🫂😘🫶🏻</p>
+    <button onclick="next()">Click Here 🌹</button>
+  </div>
+
+  <!-- FINAL -->
+  <div class="slide">
+    <h1>🩵🖤 I Love You purushaaa 🩵🖤</h1>
+    <p>Always & Forever 💐</p>
+        <p>🐒 kuttyyy</p>
+            <p>💋💋</p>
+  </div>
+
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function next(){
+    slides[current].classList.remove("active");
+    current++;
+    if(current < slides.length){
+      slides[current].classList.add("active");
+    }
+  }
+
+  function checkName(){
+    const a = document.getElementById("n1").value.trim();
+    const b = document.getElementById("n2").value.trim();
+
+    if(a !== "" && b !== ""){
+      next();
+    }else{
+      alert("Both names please 😘");
+    }
+  }
+</script>
+
+</body>
+</html>
