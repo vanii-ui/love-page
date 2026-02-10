@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Diwa ❤️ Goki</title>
+
+<style>
+body{
+  font-family:'Comic Sans MS';
+  text-align:center;
+  background-image:url('https://i.imgur.com/0Z8FQpK.jpg');
+  background-size:cover;
+  background-attachment:fixed;
+  margin:0;
+}
+
+.slide{
+  display:none;
+  min-height:100vh;
+  padding-top:60px;
+  background:rgba(255,192,203,0.85);
+}
+
+input{
+  padding:10px;
+  font-size:16px;
+  width:70%;
+  border-radius:10px;
+  border:1px solid #999;
+}
+
+button{
+  padding:10px 22px;
+  font-size:18px;
+  border-radius:20px;
+  background:#ff4d6d;
+  color:white;
+  border:none;
+  margin:10px;
+  cursor:pointer;
+}
+
+h1,h2,p{color:#2b2b2b;}
+
+.heartBg{
+  background-image:url('https://i.imgur.com/5Rj8p0I.png');
+  background-size:cover;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 0 -->
+<div class="slide" style="display:block">
+<h1>🩵 Welcome My Love 🖤</h1>
+<p>Your Name</p>
+<input id="n1"><br><br>
+<p>Partner Name</p>
+<input id="n2"><br><br>
+<button onclick="checkName()">Enter 💕</button>
+</div>
+
+<!-- Q1 -->
+<div class="slide">
+<h2>When did you first feel I was special to you?</h2>
+<input id="q1"><br><br>
+<button onclick="next()">Next</button>
+</div>
+
+<!-- Q2 -->
+<div class="slide">
+<h2>What is your favorite memory with me?</h2>
+<input id="q2"><br><br>
+<button onclick="next()">Next</button>
+</div>
+
+<!-- Q3 -->
+<div class="slide">
+<h2>How do you feel when I am with you?</h2>
+<input id="q3"><br><br>
+<button onclick="next()">Next</button>
+</div>
+
+<!-- Q4 -->
+<div class="slide">
+<h2>What do you love the most about me?</h2>
+<input id="q4"><br><br>
+<button onclick="next()">Next</button>
+</div>
+
+<!-- Q5 -->
+<div class="slide">
+<h2>What is one word to describe our 1 year?</h2>
+<input id="q5"><br><br>
+<button onclick="saveAnswers()">Submit 💞</button><br>
+<button onclick="showAnswers()">View Score 💖</button>
+</div>
+
+<!-- ANSWERS VIEW -->
+<div class="slide heartBg">
+<h1>❣️ Full Life Time 🫣 ❣️</h1>
+<p id="result"></p>
+<button onclick="next()">👊🏻 Anniversary</button>
+</div>
+
+<!-- ANNIVERSARY -->
+<div class="slide">
+<h1>💞 Happy First Anniversary Thangamee 🤌🏻</h1>
+<p>🫂😘🫶🏻</p>
+<button onclick="next()">Click Here 🌹</button>
+</div>
+
+<!-- VALENTINE -->
+<div class="slide" style="background:#dbeafe;">
+<h1>🌹💐 Happy Valentine’s Day</h1>
+<h2>My Sweet Heart 🩵🖤</h2>
+<button onclick="next()">🦚 Peacock</button>
+</div>
+
+<!-- FINAL -->
+<div class="slide heartBg">
+<h1>🩵🖤 I Love You Purushaaa 🩵🖤</h1>
+<p>🫂😘🫶🏻</p>
+</div>
+
+<script>
+let s=0;
+let slides=document.getElementsByClassName("slide");
+let answers={};
+
+function next(){
+  slides[s].style.display="none";
+  s++;
+  slides[s].style.display="block";
+}
+
+function checkName(){
+  let a=document.getElementById("n1").value;
+  let b=document.getElementById("n2").value;
+  if(a+b==="DiwaGoki"){
+    next();
+  }else{
+    alert("Use the brain 🗝️ its 8 letters 🐒 kuttyyy");
+  }
+}
+
+function saveAnswers(){
+  answers.q1=document.getElementById("q1").value;
+  answers.q2=document.getElementById("q2").value;
+  answers.q3=document.getElementById("q3").value;
+  answers.q4=document.getElementById("q4").value;
+  answers.q5=document.getElementById("q5").value;
+  localStorage.setItem("loveAnswers",JSON.stringify(answers));
+  alert("💖 Saved Forever 💖");
+}
+
+function showAnswers(){
+  let data=JSON.parse(localStorage.getItem("loveAnswers"));
+  document.getElementById("result").innerHTML=
+  `💘 When I was special: ${data.q1}<br><br>
+   💘 Favorite memory: ${data.q2}<br><br>
+   💘 Feeling with me: ${data.q3}<br><br>
+   💘 Love most: ${data.q4}<br><br>
+   💘 Our 1 year: ${data.q5}`;
+  next();
+}
+</script>
+
+</body>
+</html>
